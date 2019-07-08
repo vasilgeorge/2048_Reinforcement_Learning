@@ -1,0 +1,1 @@
+%md This repo is aiming at solving the popular 2048 game by using Reinforcement Learning and more specifically Deep Reinforcement Learning algorithms like Deep Q-Learning.
