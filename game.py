@@ -1,5 +1,5 @@
 import numpy as np
-
+from pandas import *
 
 class Game:
 
@@ -55,6 +55,15 @@ class Game:
 		prob = np.random.randint(0, 2, 1)
 		return prob * 2 + (1 - prob) * 4
 
+
+	def return_state(self):
+		state_vector = []
+
+		for i in range(len(self.board)):
+			for j in range(len(self.board[0])):
+				state_vector.append(np.log(self.board[i][j])/np.log(2))
+
+		return np.nan_to_num(state_vector)
 
 	@staticmethod
 	def leftRowOperation(row):
@@ -174,10 +183,10 @@ class Game:
 
 
 game = Game()
-print (game.board)
+print (DataFrame(game.board))
 print('\n')
 while not game.ended():
-	
+
 	move = np.random.randint(0, 4)
 	if move==0:
 		game.move_left()
@@ -192,8 +201,9 @@ while not game.ended():
 		game.move_down()
 		print("Moving down")
 
+	print (game.return_state())
 	game.generate_new()
-	print (game.board)
+	print (DataFrame(game.board))
 	print('\n')
 print ('Game Over!')
 
