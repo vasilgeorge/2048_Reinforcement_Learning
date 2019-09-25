@@ -1,7 +1,9 @@
 import numpy as np
 from pandas import *
 
+
 class Game:
+
 
 	def __init__(self):
 		self.board = np.empty([4, 4])
@@ -57,6 +59,7 @@ class Game:
 
 
 	def return_state(self):
+		
 		state_vector = []
 
 		for i in range(len(self.board)):
@@ -65,8 +68,10 @@ class Game:
 
 		return np.nan_to_num(state_vector)
 
+
 	@staticmethod
 	def leftRowOperation(row):
+
 
 		def addRow(row):
 			row = compressRow(row)
@@ -75,7 +80,8 @@ class Game:
 		                    row[i] *= 2
 		                    row[i + 1] = np.nan
 			row = compressRow(row)
-			return row
+			return 
+			row
 
 		def compressRow(row):
 			for i in range(len(row)):
@@ -97,6 +103,7 @@ class Game:
 	@staticmethod
 	def rightRowOperation(row):
     	
+
 		def addRow(row):
 			row = compressRow(row)
 			for i in reversed(range(len(row))):
@@ -126,6 +133,7 @@ class Game:
 	@staticmethod
 	def upColumnOperation(col):
 
+
 		def addCol(col):
 			col = compressCol(col)
 			for i in range(len(col) - 1):
@@ -135,6 +143,7 @@ class Game:
 
 			col = compressCol(col)
 			return col
+
 
 		def compressCol(col):
 			for i in range(len(col)):
@@ -155,6 +164,7 @@ class Game:
 	@staticmethod
 	def downColumnOperation(col):
     	
+
 		def addCol(col):
 			col = compressCol(col)
 			for i in reversed(range(len(col))):
